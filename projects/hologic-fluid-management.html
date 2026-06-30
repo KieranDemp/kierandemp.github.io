@@ -191,27 +191,45 @@ nav a.back:hover {
 }
 
 /* =====================
-   IMAGE SECTION
+   PDF VIEWER
 ===================== */
 
-.image-container {
+.pdf-container {
     margin: 40px 0;
-    text-align: center;
-}
-
-.image-container img {
-    max-width: 100%;
-    height: auto;
     border-radius: 12px;
     border: 1px solid #e5e7eb;
+    overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-.image-caption {
-    margin-top: 12px;
+.pdf-viewer {
+    width: 100%;
+    height: 800px;
+}
+
+.pdf-caption {
+    padding: 16px;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
     font-size: 13px;
     color: #6b7280;
     font-style: italic;
+}
+
+.pdf-download {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #2563eb;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.pdf-download:hover {
+    background: #1d4ed8;
 }
 
 /* =====================
@@ -356,9 +374,13 @@ footer {
     <!-- TECHNICAL POSTER -->
     <div class="content-section">
         <h2>Technical Details</h2>
-        <div class="image-container">
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUTAwwUVwxYAxMeEQoHBwcGBwcICAgICAgICAwKDAwLDA0YGQ0MCgkMCQj/2wBDAQICAgMCAwUDAwUICQcICAkICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgj/wAARCADkA/cDAREAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbW2Nna4uPk5ebn6Onq8vP09fb2+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbW2Nna4uPk5ebn6Onq8vP09fb2+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" alt="Hologic Fluid Management System Technical Poster">
-            <p class="image-caption">Technical poster showing system architecture, hardware components, control systems, and testing results</p>
+        <div class="pdf-container">
+            <iframe class="pdf-viewer" src="../assets/images/Team18_Hologic_ExpoPoster.pdf"></iframe>
+            <div class="pdf-caption">
+                Technical poster showing system architecture, hardware components, control systems, and testing results
+                <br>
+                <a href="../assets/images/Team18_Hologic_ExpoPoster.pdf" class="pdf-download" download>⬇️ Download PDF</a>
+            </div>
         </div>
     </div>
 
