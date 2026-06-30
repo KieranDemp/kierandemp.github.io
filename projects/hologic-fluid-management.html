@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hologic Fluid Management System | Kieran Dempsey</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================
+   BASE
+===================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #111827;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* =====================
+   LIQUID BACKGROUND
+===================== */
+
+.bg-blobs {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    animation: float 20s ease-in-out infinite;
+}
+
+.b1 {
+    background: radial-gradient(circle, #2563eb, transparent 60%);
+    top: 10%;
+    left: -220px;
+}
+
+.b2 {
+    background: radial-gradient(circle, #7c3aed, transparent 60%);
+    top: 25%;
+    right: -260px;
+    animation-duration: 26s;
+}
+
+.b3 {
+    background: radial-gradient(circle, #06b6d4, transparent 60%);
+    bottom: -220px;
+    right: -180px;
+    animation-duration: 30s;
+}
+
+@keyframes float {
+    0%   { transform: translateY(0px) scale(1); }
+    50%  { transform: translateY(-40px) scale(1.05); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+/* =====================
+   NAVBAR
+===================== */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    padding: 18px 40px;
+
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+nav a.back {
+    text-decoration: none;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+nav a.back:hover {
+    color: #1d4ed8;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+
+.hero-section {
+    margin-top: 80px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hero-section .subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.meta-item {
+    background: #f3f4f6;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #4b5563;
+}
+
+/* =====================
+   CONTAINER
+===================== */
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* =====================
+   CONTENT SECTIONS
+===================== */
+
+.content-section {
+    margin: 60px 0;
+}
+
+.content-section h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #111827;
+}
+
+.content-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 24px 0 12px 0;
+    color: #1f2937;
+}
+
+.content-section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 16px;
+}
+
+/* =====================
+   IMAGE SECTION
+===================== */
+
+.image-container {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* =====================
+   LISTS
+===================== */
+
+ul {
+    margin: 16px 0 16px 24px;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #4b5563;
+    font-size: 15px;
+}
+
+li:before {
+    content: "→";
+    margin-right: 8px;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* =====================
+   SKILLS
+===================== */
+
+.skills {
+    margin: 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skills span {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    background: #f9fafb;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    border: 1px solid #d1d5db;
+    color: #111827;
+    background: white;
+}
+
+.btn-secondary:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #9ca3af;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 80px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LIQUID BACKGROUND -->
+<div class="bg-blobs">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="back">← Back to Portfolio</a>
+</nav>
+
+<!-- HERO SECTION -->
+<div class="hero-section">
+    <h1>Hologic Fluid Management System</h1>
+    <p class="subtitle">Hysteroscopic Surgery Fluid Management System</p>
+    <div class="hero-meta">
+        <div class="meta-item">📅 2024-2025</div>
+        <div class="meta-item">🏥 Medical Device</div>
+        <div class="meta-item">🏆 University of Colorado Boulder</div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- OVERVIEW -->
+    <div class="content-section">
+        <h2>Project Overview</h2>
+        <p>
+            This project involved designing and building a closed-loop syringe pump system for hysteroscopic surgery applications. The system uses real-time pressure feedback and advanced PID control to improve flow stability compared to traditional peristaltic pump systems.
+        </p>
+        <p>
+            The device is designed to support minimally invasive procedures that treat uterine fibroids, affecting 80% of women. By replacing traditional peristaltic pumps with a dual-syringe system, we achieved better control over fluid flow and pressure during surgical procedures.
+        </p>
+    </div>
+
+    <!-- TECHNICAL POSTER -->
+    <div class="content-section">
+        <h2>Technical Details</h2>
+        <div class="image-container">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUTAwwUVwxYAxMeEQoHBwcGBwcICAgICAgICAwKDAwLDA0YGQ0MCgkMCQj/2wBDAQICAgMCAwUDAwUICQcICAkICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgj/wAARCADkA/cDAREAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbW2Nna4uPk5ebn6Onq8vP09fb2+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbW2Nna4uPk5ebn6Onq8vP09fb2+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" alt="Hologic Fluid Management System Technical Poster">
+            <p class="image-caption">Technical poster showing system architecture, hardware components, control systems, and testing results</p>
+        </div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="content-section">
+        <h2>Background & Problem Statement</h2>
+        <p>
+            Approximately 80% of women develop uterine fibroids or polyps in their lifetime. Traditional treatments involve invasive surgery. Our device supports minimally invasive hysteroscopic procedures which are faster, have better patient outcomes, and shorter recovery times.
+        </p>
+        <h3>Design Challenge</h3>
+        <p>
+            Traditional fluid delivery systems use peristaltic pumps, which create significant pressure oscillations that can compromise surgical precision. We needed to design a system that:
+        </p>
+        <ul>
+            <li>Maintains stable intrauterine pressure (40-250 mmHg)</li>
+            <li>Reduces flow and pressure oscillations to ≤50% of baseline</li>
+            <li>Allows adjustable flow range from 0-700 mL/min</li>
+            <li>Provides real-time data display for surgical team</li>
+            <li>Uses disposable components for patient safety</li>
+        </ul>
+    </div>
+
+    <!-- SYSTEM DESIGN -->
+    <div class="content-section">
+        <h2>System Design</h2>
+        
+        <h3>Mechanical Hardware</h3>
+        <p>
+            The system uses a dual-syringe design with synchronized motion to deliver smooth, continuous fluid flow:
+        </p>
+        <ul>
+            <li><strong>Syringe Drivers</strong> - Translates rotational motor motion into linear syringe movement</li>
+            <li><strong>Mount Plates</strong> - Top and bottom plates ensure internal alignment for smooth motion and reduced friction</li>
+            <li><strong>Motor Control</strong> - Stepper motors coordinate the actuation of both syringes for uniform pressure profile</li>
+            <li><strong>Pressure Measurement</strong> - Flexible silicone diaphragm with integrated pressure sensor provides real-time feedback</li>
+        </ul>
+
+        <h3>Control Systems</h3>
+        <p>
+            The control system uses a closed-loop feedback mechanism to maintain stable pressure:
+        </p>
+        <ul>
+            <li><strong>User Input</strong> - Surgeon sets target pressure on device interface</li>
+            <li><strong>Motor Actuation</strong> - Control algorithm commands motor speeds</li>
+            <li><strong>Pressure Feedback</strong> - Real-time sensor readings drive correction</li>
+            <li><strong>PID Control</strong> - Tuned controller adjusts flow to maintain target pressure</li>
+            <li><strong>Data Display</strong> - Real-time pressure, flow, and volume tracking on screen</li>
+        </ul>
+
+        <h3>Syringe Actuation Pattern</h3>
+        <p>
+            The motor control algorithm coordinates syringe movement to create a smooth pressure profile. Rather than single syringe operation, the dual-syringe system uses an overlapping actuation pattern where one syringe begins moving as the other completes its stroke, creating near-constant flow delivery.
+        </p>
+    </div>
+
+    <!-- TESTING & RESULTS -->
+    <div class="content-section">
+        <h2>Testing & Results</h2>
+        
+        <h3>Specification Verification</h3>
+        <p>We conducted comprehensive testing to validate system performance:</p>
+        <ul>
+            <li><strong>Flow Rate Test</strong> - Verified accurate delivery across 0-700 mL/min range</li>
+            <li><strong>Pressure Test</strong> - Confirmed stable operation within 40-250 mmHg requirements</li>
+            <li><strong>Volume Test</strong> - Validated ability to track inflow volume within ±25 mL up to 5L fluid</li>
+        </ul>
+
+        <h3>Dynamic Cavity Test</h3>
+        <p>
+            We developed a dynamic cavity test that simulates real surgical conditions. This test includes:
+        </p>
+        <ul>
+            <li>Simulated uterine cavity with variable compliance</li>
+            <li>Outflow valve that opens and closes like surgical conditions</li>
+            <li>Pressure monitoring that captures realistic surgical scenarios</li>
+        </ul>
+
+        <h3>Performance Comparison</h3>
+        <p>
+            Our pressure profile comparison demonstrated significant improvements over the legacy fluent system:
+        </p>
+        <ul>
+            <li>Reduced pressure oscillations by 70%</li>
+            <li>Maintained steady 150 mmHg target pressure with &lt;5% deviation</li>
+            <li>Smoother response to valve opening/closing events</li>
+        </ul>
+    </div>
+
+    <!-- KEY ACHIEVEMENTS -->
+    <div class="content-section">
+        <h2>Key Achievements</h2>
+        <ul>
+            <li>Designed and prototyped complete fluid delivery system from concept to working prototype</li>
+            <li>Developed and tuned PID controller achieving 70% reduction in pressure oscillations</li>
+            <li>Implemented real-time sensor data processing with CRC validation</li>
+            <li>Conducted comprehensive testing validating all system requirements</li>
+            <li>Collaborated with Hologic and medical professionals throughout design process</li>
+        </ul>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="content-section">
+        <h2>Technical Skills & Tools</h2>
+        <div class="skills">
+            <span>PID Control</span>
+            <span>MATLAB</span>
+            <span>Embedded Systems</span>
+            <span>Pressure Sensors</span>
+            <span>Motor Control</span>
+            <span>Data Acquisition</span>
+            <span>System Testing</span>
+            <span>SolidWorks</span>
+            <span>Control Theory</span>
+            <span>Medical Devices</span>
+        </div>
+    </div>
+
+    <!-- FUTURE WORK -->
+    <div class="content-section">
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Improve syringe sterility for air contact in mold disposable components</li>
+            <li>Optimize injection molding for cost-effective manufacturing at scale</li>
+            <li>Reduce overall device size and weight</li>
+            <li>Implement faulty sensor detection for safety assurance</li>
+            <li>Enhanced pump efficiency and noise optimization</li>
+        </ul>
+    </div>
+
+    <!-- CTA BUTTONS -->
+    <div class="button-group" style="justify-content: center;">
+        <a href="/" class="btn btn-secondary">← Back to Projects</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Kieran Dempsey
+</footer>
+
+</body>
+</html>
