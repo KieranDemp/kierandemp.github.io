@@ -152,6 +152,8 @@ nav a:hover {
     font-size: 14px;
     font-weight: 500;
     transition: 0.2s;
+    cursor: pointer;
+    border: none;
 }
 
 .primary {
@@ -201,6 +203,7 @@ h2 {
     padding: 22px;
     background: white;
     transition: 0.2s ease;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -219,80 +222,34 @@ h2 {
 }
 
 /* =====================
-   PROJECT DETAIL
+   PROJECT PREVIEW
 ===================== */
 
-.project-detail {
+.project-preview {
     border: 1px solid #e5e7eb;
     border-radius: 14px;
-    padding: 40px;
+    padding: 22px;
     background: white;
-    margin-bottom: 40px;
     transition: 0.2s ease;
+    cursor: pointer;
 }
 
-.project-detail:hover {
-    transform: translateY(-4px);
+.project-preview:hover {
+    transform: translateY(-6px);
     border-color: #2563eb;
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
 }
 
-.project-header {
-    margin-bottom: 24px;
-}
-
-.project-header h3 {
-    font-size: 24px;
+.project-preview h3 {
+    font-size: 18px;
     margin-bottom: 8px;
     color: #111827;
 }
 
-.project-meta {
-    display: flex;
-    gap: 20px;
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 12px;
-}
-
-.project-description {
-    color: #4b5563;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.project-features {
-    margin-bottom: 20px;
-}
-
-.project-features h4 {
-    font-size: 13px;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.project-features ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.project-features li {
-    padding: 6px 0;
+.project-preview p {
     color: #6b7280;
     font-size: 14px;
-    position: relative;
-    padding-left: 20px;
-}
-
-.project-features li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #2563eb;
-    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 /* =====================
@@ -406,42 +363,22 @@ footer {
     <div class="container">
         <h2>Engineering Projects</h2>
 
-        <!-- PROJECT 1: Hologic Fluid Management System -->
-        <div class="project-detail">
-            <div class="project-header">
+        <div class="grid">
+
+            <div class="project-preview" onclick="window.location.href='projects/hologic-fluid-management.html'">
                 <h3>Hologic Fluid Management System</h3>
-                <div class="project-meta">
-                    <span>📅 2024-2025</span>
-                    <span>🏢 Medical Device</span>
+                <p>
+                    Closed-loop syringe pump system with real-time pressure feedback
+                    and PID tuning for improved flow stability.
+                </p>
+                <div class="skills">
+                    <span>PID Control</span>
+                    <span>Sensors</span>
+                    <span>Testing</span>
                 </div>
             </div>
 
-            <p class="project-description">
-                Developed a closed-loop syringe pump system with real-time pressure feedback and advanced PID control tuning for improved flow stability in a medical device application. This project involved designing sensor interfaces, implementing control algorithms, and validating system performance through rigorous testing.
-            </p>
-
-            <div class="project-features">
-                <h4>Key Features</h4>
-                <ul>
-                    <li>Real-time pressure feedback sensor integration</li>
-                    <li>PID controller tuning and optimization</li>
-                    <li>Flow stability improvements of 15%+</li>
-                    <li>Automated testing and data acquisition</li>
-                </ul>
-            </div>
-
-            <div class="skills">
-                <span>PID Control</span>
-                <span>MATLAB</span>
-                <span>Pressure Sensors</span>
-                <span>Data Analysis</span>
-                <span>System Testing</span>
-            </div>
-        </div>
-
-        <div class="grid">
-
-            <div class="card">
+            <div class="project-preview" onclick="alert('Coming soon!')">
                 <h3>Sensor Acquisition System</h3>
                 <p>
                     UART-based pressure sensor interface with CRC validation and
@@ -454,7 +391,7 @@ footer {
                 </div>
             </div>
 
-            <div class="card">
+            <div class="project-preview" onclick="alert('Coming soon!')">
                 <h3>Mechanical Test Rig</h3>
                 <p>
                     Designed and built a custom test apparatus for validating
