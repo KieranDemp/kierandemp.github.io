@@ -4,30 +4,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Your Name | Portfolio</title>
+<title>Kieran Dempsey | Engineering Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =====================
+   BASE
+===================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-{
-    font-family:'Inter',sans-serif;
-    background:#0f172a;
-    color:#e2e8f0;
-    line-height:1.6;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #111827;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* =====================
+   LIQUID BACKGROUND
+===================== */
+
+.bg-blobs {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    animation: float 20s ease-in-out infinite;
+}
+
+.b1 {
+    background: radial-gradient(circle, #2563eb, transparent 60%);
+    top: 10%;
+    left: -220px;
+}
+
+.b2 {
+    background: radial-gradient(circle, #7c3aed, transparent 60%);
+    top: 25%;
+    right: -260px;
+    animation-duration: 26s;
+}
+
+.b3 {
+    background: radial-gradient(circle, #06b6d4, transparent 60%);
+    bottom: -220px;
+    right: -180px;
+    animation-duration: 30s;
+}
+
+@keyframes float {
+    0%   { transform: translateY(0px) scale(1); }
+    50%  { transform: translateY(-40px) scale(1.05); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+/* =====================
+   NAVBAR
+===================== */
 
 nav {
     position: fixed;
@@ -41,510 +96,313 @@ nav {
 
     padding: 18px 0;
 
-    background: rgba(15,23,42,0.75);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
+nav a {
+    text-decoration: none;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-nav a:hover{
-    color:#60a5fa;
+nav a:hover {
+    color: #2563eb;
 }
 
-/* HERO */
+/* =====================
+   HERO
+===================== */
 
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    padding:20px;
-
-    background:
-    radial-gradient(circle at top left,#2563eb 0%,transparent 40%),
-    radial-gradient(circle at top right,#7c3aed 0%,transparent 40%),
-    #0f172a;
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-.hero h1{
-    font-size:4rem;
-    font-weight:800;
+.hero h1 {
+    font-size: 58px;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
-.hero p{
-    margin-top:15px;
-    font-size:1.3rem;
-    color:#cbd5e1;
-}
-    
-.subtitle {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #cbd5e1;
+.hero p {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #6b7280;
+    max-width: 650px;
 }
 
-.tagline {
-    margin-top: 10px;
-    max-width: 600px;
-    font-size: 1.05rem;
-    color: rgba(226,232,240,0.8);
-} 
-
-.hero-buttons{
-    margin-top:30px;
+.hero-buttons {
+    margin-top: 30px;
 }
 
-.btn{
-    display:inline-block;
-    margin:10px;
-    padding:12px 22px;
-
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:600;
-
-    transition:.3s;
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 6px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
 }
 
-.primary{
-    background:#2563eb;
-    color:white;
+.primary {
+    background: #2563eb;
+    color: white;
 }
 
-.primary:hover{
-    background:#1d4ed8;
+.primary:hover {
+    background: #1d4ed8;
 }
 
-.secondary{
-    border:1px solid rgba(255,255,255,.2);
-    color:white;
+.secondary {
+    border: 1px solid #d1d5db;
+    color: #111827;
 }
 
-.secondary:hover{
-    background:rgba(255,255,255,.1);
+.secondary:hover {
+    border-color: #2563eb;
+    color: #2563eb;
 }
 
-/* SECTIONS */
+/* =====================
+   SECTIONS
+===================== */
 
-section{
-    padding:100px 20px;
+section {
+    padding: 100px 20px;
 }
 
-.container{
-    max-width:1100px;
-    margin:auto;
+.container {
+    max-width: 1000px;
+    margin: auto;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:2.5rem;
+h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
 }
 
-/* GLASS CARDS */
+/* =====================
+   CARDS
+===================== */
 
 .card {
-    background: rgba(255,255,255,.04);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 20px;
-    padding: 25px;
-    transition: 0.25s ease;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+    background: white;
+    transition: 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    border: 1px solid rgba(96,165,250,0.4);
+    transform: translateY(-6px);
+    border-color: #2563eb;
 }
 
-.card h3{
-    margin-bottom:10px;
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
 }
 
-.card a{
-    color:#60a5fa;
-    text-decoration:none;
+.card p {
+    color: #6b7280;
+    font-size: 14px;
 }
 
-/* GRID */
+/* =====================
+   GRID
+===================== */
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
 }
 
-/* SKILLS */
+/* =====================
+   SKILLS
+===================== */
 
-.skills{
-    text-align:center;
-    margin-top:30px;
+.skills {
+    margin-top: 12px;
 }
 
-.skills span{
-    display:inline-block;
-
-    margin:6px;
-    padding:8px 14px;
-
-    border-radius:999px;
-
-    background:rgba(37,99,235,.2);
-
-    border:1px solid rgba(37,99,235,.4);
+.skills span {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 10px;
+    margin: 4px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    color: #374151;
 }
 
-/* RESUME BUTTON */
+/* =====================
+   LINKS
+===================== */
 
-.resume-btn{
-    display:inline-block;
-
-    margin-top:25px;
-
-    background:#2563eb;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:14px 24px;
-
-    border-radius:12px;
+a {
+    color: #2563eb;
 }
 
-/* CONTACT */
+/* =====================
+   FOOTER
+===================== */
 
-.contact-links{
-    text-align:center;
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #9ca3af;
+    border-top: 1px solid #e5e7eb;
 }
 
-.contact-links a{
-    color:#60a5fa;
-    margin:0 10px;
-    text-decoration:none;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:40px;
-    color:#94a3b8;
-}
-
-/* DARK MODE BUTTON */
-
-.dark-toggle{
-    position:fixed;
-    right:20px;
-    top:15px;
-
-    z-index:2000;
-
-    border:none;
-
-    padding:10px 14px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-}
-
-/* LIGHT MODE */
-
-.light{
-    background:#f8fafc;
-    color:#0f172a;
-}
-
-.light nav{
-    background:rgba(255,255,255,.9);
-}
-
-.light nav a{
-    color:#0f172a;
-}
-
-.light .card{
-    background:white;
-    color:#0f172a;
-}
-
-.light .hero{
-    color:white;
-}
-.bg-blobs {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    overflow: hidden;
-}
-
-/* base blob style */
-.blob {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-
-    filter: blur(80px);
-    opacity: 0.35;
-
-    animation: float 18s ease-in-out infinite;
-}
-
-/* LEFT SIDE */
-.b1 {
-    background: radial-gradient(circle, #2563eb, transparent 60%);
-    top: 10%;
-    left: -200px;
-}
-
-/* RIGHT TOP */
-.b2 {
-    background: radial-gradient(circle, #7c3aed, transparent 60%);
-    top: 20%;
-    right: -250px;
-    animation-duration: 22s;
-}
-
-/* RIGHT BOTTOM */
-.b3 {
-    background: radial-gradient(circle, #06b6d4, transparent 60%);
-    bottom: -200px;
-    right: -150px;
-    animation-duration: 26s;
-}
-
-/* motion */
-@keyframes float {
-    0% {
-        transform: translateY(0px) scale(1);
-    }
-    50% {
-        transform: translateY(-40px) scale(1.05);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-    }
-}
-
-    body {
-    position: relative;
-}
-    
 </style>
 </head>
+
+<body>
+
+<!-- LIQUID BACKGROUND -->
 <div class="bg-blobs">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
     <div class="blob b3"></div>
 </div>
-<body>
 
-<button class="dark-toggle" onclick="toggleTheme()">🌙</button>
-
+<!-- NAV -->
 <nav>
     <a href="#about">About</a>
-    <a href="#engineering">Engineering</a>
-    <a href="#personal">Personal</a>
+    <a href="#projects">Projects</a>
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 
-    <h1>Your Name</h1>
+    <h1>Kieran Dempsey</h1>
 
-    <p class="subtitle">
+    <p>
         Mechanical Engineering Student • Controls • Test Systems • CAD Design
     </p>
 
-    <p class="tagline">
-        I design and build physical systems that combine mechanics, electronics, and feedback control.
-    </p>
-
     <div class="hero-buttons">
-        <a href="#engineering" class="btn primary">
-            View Projects
-        </a>
-
-        <a href="#resume" class="btn secondary">
-            Resume
-        </a>
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="#resume" class="btn secondary">Resume</a>
     </div>
 
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-
     <div class="container">
-
-        <h2>About Me</h2>
+        <h2>About</h2>
 
         <div class="card">
-
             <p>
-                Write a short introduction here.
-                Mention your major, interests,
-                engineering focus, clubs, internships,
-                and what kinds of things you enjoy building.
+                Mechanical Engineering student focused on control systems,
+                test engineering, and physical system design. Experience in
+                medical device prototyping, embedded systems, and experimental validation.
             </p>
 
             <div class="skills">
-                <span>Python</span>
-                <span>C++</span>
+                <span>Controls</span>
                 <span>MATLAB</span>
-                <span>Arduino</span>
                 <span>SolidWorks</span>
+                <span>Embedded Systems</span>
+                <span>Python</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <h2>Engineering Projects</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Hologic Fluid Management System</h3>
+                <p>
+                    Closed-loop syringe pump system with real-time pressure feedback
+                    and PID tuning for improved flow stability.
+                </p>
+                <div class="skills">
+                    <span>PID Control</span>
+                    <span>Sensors</span>
+                    <span>Testing</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Sensor Acquisition System</h3>
+                <p>
+                    UART-based pressure sensor interface with CRC validation and
+                    real-time data processing.
+                </p>
+                <div class="skills">
+                    <span>ESP32</span>
+                    <span>Embedded</span>
+                    <span>Signals</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Mechanical Test Rig</h3>
+                <p>
+                    Designed and built a custom test apparatus for validating
+                    fluid system performance.
+                </p>
+                <div class="skills">
+                    <span>CAD</span>
+                    <span>3D Printing</span>
+                    <span>Fabrication</span>
+                </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<section id="engineering">
-
-<div class="container">
-
-<h2>Engineering Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-    <h3>Hologic Fluid Management System</h3>
-
-    <p>
-        Designed a dual-syringe closed-loop system with real-time pressure feedback.
-        Implemented PID tuning and validated system stability against commercial devices.
-    </p>
-
-    <div class="skills">
-        <span>PID Control</span>
-        <span>Fluid Systems</span>
-        <span>MATLAB</span>
-        <span>Sensors</span>
-    </div>
-
-    <a href="#">View Project →</a>
-</div>
-
-<div class="card">
-<h3>Project Name</h3>
-<p>
-Description of your engineering project.
-</p>
-<a href="#">GitHub Link →</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="personal">
-
-<div class="container">
-
-<h2>Personal Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Personal Project</h3>
-<p>
-Description of your project.
-</p>
-<a href="#">Learn More →</a>
-</div>
-
-<div class="card">
-<h3>Personal Project</h3>
-<p>
-Description of your project.
-</p>
-<a href="#">Learn More →</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+<!-- RESUME -->
 <section id="resume">
+    <div class="container">
+        <h2>Resume</h2>
 
-<div class="container">
-
-<h2>Resume</h2>
-
-<div class="card" style="text-align:center">
-
-<p>
-Upload your resume PDF to GitHub and
-replace the link below.
-</p>
-
-<a href="#" class="resume-btn">
-View Resume
-</a>
-
-</div>
-
-</div>
-
+        <div class="card">
+            <p>Download or view my resume below.</p>
+            <br>
+            <a href="#" class="btn primary">View Resume</a>
+        </div>
+    </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
 
-<div class="container">
-
-<h2>Contact</h2>
-
-<div class="card">
-
-<div class="contact-links">
-
-<p>Email: your@email.com</p>
-
-<br>
-
-<a href="#">GitHub</a>
-
-<a href="#">LinkedIn</a>
-
-<a href="#">Email</a>
-
-</div>
-
-</div>
-
-</div>
-
+        <div class="card">
+            <p>Email: your@email.com</p>
+            <p>GitHub: github.com/yourname</p>
+            <p>LinkedIn: linkedin.com/in/yourname</p>
+        </div>
+    </div>
 </section>
 
 <footer>
-© 2026 Your Name
+    © 2026 Kieran Dempsey
 </footer>
-
-<script>
-function toggleTheme() {
-    document.body.classList.toggle("light");
-}
-</script>
 
 </body>
 </html>
