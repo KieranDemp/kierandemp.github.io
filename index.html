@@ -53,26 +53,82 @@ body {
    LIQUID SWIRL BACKGROUND
 ===================== */
 
-.liquid-bg {
+.liquid-swirl {
     position: fixed;
     inset: 0;
     z-index: -2;
     overflow: hidden;
 }
 
-.liquid-swirl {
+.swirl {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise" seed="2"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="80" xChannelSelector="R" yChannelSelector="G"/></filter></defs><rect width="1200" height="800" fill="url(%23grad1)"/><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%231e3a8a;stop-opacity:0.4"/><stop offset="50%" style="stop-color:%231e1b4b;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23172554;stop-opacity:0.2"/></linearGradient></defs></svg>') no-repeat center;
-    background-size: cover;
-    opacity: 0.6;
-    animation: liquidShift 8s ease-in-out infinite;
+    border-radius: 50%;
+    filter: blur(70px);
+    mix-blend-mode: screen;
 }
 
-@keyframes liquidShift {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.05) rotate(2deg); }
+.swirl-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.2));
+    top: -100px;
+    left: -150px;
+    animation: liquidSwirl1 15s ease-in-out infinite;
+}
+
+.swirl-2 {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(225deg, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.2));
+    bottom: -100px;
+    left: 10%;
+    animation: liquidSwirl2 18s ease-in-out infinite;
+}
+
+.swirl-3 {
+    width: 550px;
+    height: 550px;
+    background: linear-gradient(45deg, rgba(6, 182, 212, 0.3), rgba(168, 85, 247, 0.2));
+    top: 40%;
+    right: -100px;
+    animation: liquidSwirl3 20s ease-in-out infinite;
+}
+
+.swirl-4 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(315deg, rgba(59, 130, 246, 0.35), rgba(6, 182, 212, 0.2));
+    bottom: 20%;
+    right: 5%;
+    animation: liquidSwirl4 17s ease-in-out infinite;
+}
+
+@keyframes liquidSwirl1 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(30px, -40px) scale(1.1) rotate(120deg); }
+    66% { transform: translate(-20px, 30px) scale(0.95) rotate(240deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+
+@keyframes liquidSwirl2 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-40px, 30px) scale(1.15) rotate(120deg); }
+    66% { transform: translate(25px, -35px) scale(0.9) rotate(240deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+
+@keyframes liquidSwirl3 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-35px, 25px) scale(1.08) rotate(120deg); }
+    66% { transform: translate(30px, -40px) scale(0.98) rotate(240deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+
+@keyframes liquidSwirl4 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(35px, -30px) scale(1.12) rotate(120deg); }
+    66% { transform: translate(-30px, 35px) scale(0.92) rotate(240deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
 }
 
 /* =====================
@@ -146,67 +202,6 @@ body {
 }
 
 /* =====================
-   ANIMATED BACKGROUND ORBS
-===================== */
-
-.bg-animation {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    overflow: hidden;
-}
-
-.gradient-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.25;
-    mix-blend-mode: screen;
-}
-
-.orb-1 {
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(135deg, #3b82f6, #a855f7);
-    top: -200px;
-    left: -200px;
-    animation: float1 20s ease-in-out infinite;
-}
-
-.orb-2 {
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, #06b6d4, #0ea5e9);
-    top: 50%;
-    right: -100px;
-    animation: float2 25s ease-in-out infinite;
-}
-
-.orb-3 {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
-    bottom: -100px;
-    right: 200px;
-    animation: float3 30s ease-in-out infinite;
-}
-
-@keyframes float1 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(50px, -50px); }
-}
-
-@keyframes float2 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-50px, 50px); }
-}
-
-@keyframes float3 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-30px, -30px); }
-}
-
-/* =====================
    NAVBAR
 ===================== */
 
@@ -270,6 +265,7 @@ nav a:hover {
     padding: 20px;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero::before {
@@ -706,21 +702,17 @@ footer {
 
 <body>
 
-<!-- LIQUID SWIRL BACKGROUND -->
-<div class="liquid-bg">
-    <div class="liquid-swirl"></div>
+<!-- LIQUID SWIRL ANIMATIONS -->
+<div class="liquid-swirl">
+    <div class="swirl swirl-1"></div>
+    <div class="swirl swirl-2"></div>
+    <div class="swirl swirl-3"></div>
+    <div class="swirl swirl-4"></div>
 </div>
 
 <!-- LIQUID SIDE PANELS -->
 <div class="liquid-side liquid-left"></div>
 <div class="liquid-side liquid-right"></div>
-
-<!-- ANIMATED BACKGROUND ORBS -->
-<div class="bg-animation">
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
-    <div class="gradient-orb orb-3"></div>
-</div>
 
 <!-- NAV -->
 <nav>
