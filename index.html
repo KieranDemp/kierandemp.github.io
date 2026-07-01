@@ -50,7 +50,7 @@ body {
 }
 
 /* =====================
-   LIQUID SWIRL BACKGROUND
+   LIQUID MARBLE BACKGROUND
 ===================== */
 
 .liquid-swirl {
@@ -58,77 +58,56 @@ body {
     inset: 0;
     z-index: -2;
     overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1a1f2e 50%, #0d1117 100%);
 }
 
-.swirl {
+svg {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(70px);
+    width: 100%;
+    height: 100%;
+    filter: none;
+}
+
+.swirl-path {
+    opacity: 0.6;
     mix-blend-mode: screen;
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
 }
 
 .swirl-1 {
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.2));
-    top: -100px;
-    left: -150px;
-    animation: liquidSwirl1 15s ease-in-out infinite;
+    animation: liquidFlow1 20s ease-in-out infinite;
 }
 
 .swirl-2 {
-    width: 450px;
-    height: 450px;
-    background: linear-gradient(225deg, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.2));
-    bottom: -100px;
-    left: 10%;
-    animation: liquidSwirl2 18s ease-in-out infinite;
+    animation: liquidFlow2 25s ease-in-out infinite;
 }
 
 .swirl-3 {
-    width: 550px;
-    height: 550px;
-    background: linear-gradient(45deg, rgba(6, 182, 212, 0.3), rgba(168, 85, 247, 0.2));
-    top: 40%;
-    right: -100px;
-    animation: liquidSwirl3 20s ease-in-out infinite;
+    animation: liquidFlow3 22s ease-in-out infinite;
 }
 
 .swirl-4 {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(315deg, rgba(59, 130, 246, 0.35), rgba(6, 182, 212, 0.2));
-    bottom: 20%;
-    right: 5%;
-    animation: liquidSwirl4 17s ease-in-out infinite;
+    animation: liquidFlow4 28s ease-in-out infinite;
 }
 
-@keyframes liquidSwirl1 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(30px, -40px) scale(1.1) rotate(120deg); }
-    66% { transform: translate(-20px, 30px) scale(0.95) rotate(240deg); }
-    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+@keyframes liquidFlow1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -30px) scale(1.05); }
 }
 
-@keyframes liquidSwirl2 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(-40px, 30px) scale(1.15) rotate(120deg); }
-    66% { transform: translate(25px, -35px) scale(0.9) rotate(240deg); }
-    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+@keyframes liquidFlow2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-25px, 35px) scale(1.08); }
 }
 
-@keyframes liquidSwirl3 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(-35px, 25px) scale(1.08) rotate(120deg); }
-    66% { transform: translate(30px, -40px) scale(0.98) rotate(240deg); }
-    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+@keyframes liquidFlow3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, 20px) scale(1.03); }
 }
 
-@keyframes liquidSwirl4 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(35px, -30px) scale(1.12) rotate(120deg); }
-    66% { transform: translate(-30px, 35px) scale(0.92) rotate(240deg); }
-    100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+@keyframes liquidFlow4 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-20px, -25px) scale(1.06); }
 }
 
 /* =====================
@@ -702,12 +681,55 @@ footer {
 
 <body>
 
-<!-- LIQUID SWIRL ANIMATIONS -->
+<!-- LIQUID MARBLE BACKGROUND WITH SHARP LINES -->
 <div class="liquid-swirl">
-    <div class="swirl swirl-1"></div>
-    <div class="swirl swirl-2"></div>
-    <div class="swirl swirl-3"></div>
-    <div class="swirl swirl-4"></div>
+    <svg class="swirl swirl-1" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.8"/>
+                <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.6"/>
+                <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.4"/>
+            </linearGradient>
+        </defs>
+        <path class="swirl-path" d="M100,200 Q300,100 500,150 T900,200 Q1000,250 1100,300 L1200,400 Q1150,500 900,550 T400,600 Q200,580 100,500 Z" fill="url(#grad1)"/>
+        <path class="swirl-path" d="M50,350 Q250,250 450,320 T850,380 Q950,420 1050,480 L1200,600 Q1100,650 800,680 T300,700 Q100,680 50,600 Z" fill="url(#grad1)" opacity="0.5"/>
+    </svg>
+
+    <svg class="swirl swirl-2" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.7"/>
+                <stop offset="50%" style="stop-color:#c084fc;stop-opacity:0.5"/>
+                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.3"/>
+            </linearGradient>
+        </defs>
+        <path class="swirl-path" d="M200,100 Q400,50 600,120 T1000,180 Q1100,200 1150,280 L1200,380 Q1050,450 700,480 T200,500 Q50,450 50,320 Z" fill="url(#grad2)"/>
+        <path class="swirl-path" d="M100,500 Q300,450 520,520 T900,600 Q1050,640 1150,720 L1200,800 Q950,800 600,750 T100,720 Z" fill="url(#grad2)" opacity="0.4"/>
+    </svg>
+
+    <svg class="swirl swirl-3" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.75"/>
+                <stop offset="50%" style="stop-color:#0ea5e9;stop-opacity:0.55"/>
+                <stop offset="100%" style="stop-color:#0369a1;stop-opacity:0.35"/>
+            </linearGradient>
+        </defs>
+        <path class="swirl-path" d="M0,250 Q200,150 400,200 T800,280 Q950,320 1100,400 L1200,500 Q1000,580 600,620 T100,650 Q0,600 0,400 Z" fill="url(#grad3)"/>
+        <path class="swirl-path" d="M20,600 Q250,550 480,610 T850,700 Q1000,750 1200,800 L1200,800 Q800,800 300,780 Q50,760 20,720 Z" fill="url(#grad3)" opacity="0.45"/>
+    </svg>
+
+    <svg class="swirl swirl-4" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.7"/>
+                <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.5"/>
+                <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
+            </linearGradient>
+        </defs>
+        <path class="swirl-path" d="M0,150 Q150,80 350,150 T750,250 Q900,300 1200,350 L1200,200 Q1000,100 700,80 T300,100 Q50,120 0,180 Z" fill="url(#grad4)"/>
+        <path class="swirl-path" d="M50,450 Q300,380 550,450 T950,550 Q1100,600 1200,680 L1200,700 Q900,750 500,750 T50,700 Z" fill="url(#grad4)" opacity="0.5"/>
+    </svg>
 </div>
 
 <!-- LIQUID SIDE PANELS -->
