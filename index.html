@@ -15,17 +15,18 @@
 ===================== */
 
 :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary: #7c3aed;
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary: #a855f7;
     --accent: #06b6d4;
     --success: #10b981;
     --warning: #f59e0b;
     --bg-dark: #0f172a;
-    --bg-light: #ffffff;
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --border: #e2e8f0;
+    --bg-darker: #050e1a;
+    --bg-light: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border: #334155;
 }
 
 * {
@@ -40,7 +41,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #f0fdf4 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1a1f2e 50%, #0d1117 100%);
     color: var(--text-primary);
     line-height: 1.6;
     position: relative;
@@ -63,14 +64,14 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.3;
+    opacity: 0.25;
     mix-blend-mode: screen;
 }
 
 .orb-1 {
     width: 600px;
     height: 600px;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
     top: -200px;
     left: -200px;
     animation: float1 20s ease-in-out infinite;
@@ -88,7 +89,7 @@ body {
 .orb-3 {
     width: 400px;
     height: 400px;
-    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    background: linear-gradient(135deg, #a855f7, #ec4899);
     bottom: -100px;
     right: 200px;
     animation: float3 30s ease-in-out infinite;
@@ -125,10 +126,10 @@ nav {
 
     padding: 20px 0;
 
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 nav a {
@@ -182,7 +183,7 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -245,7 +246,7 @@ nav a:hover {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s;
 }
@@ -257,25 +258,25 @@ nav a:hover {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(30, 41, 59, 0.8);
     color: var(--primary);
     border: 2px solid var(--primary);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary:hover {
     transform: translateY(-3px);
-    background: white;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(30, 41, 59, 0.95);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
 }
 
 /* =====================
@@ -309,12 +310,12 @@ h2 {
 ===================== */
 
 .about-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(30, 41, 59, 0.6);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.5);
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -324,14 +325,15 @@ h2 {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .about-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 30px 80px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 30px 80px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
 }
 
 .about-card:hover::before {
@@ -350,7 +352,7 @@ h2 {
 ===================== */
 
 .card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(30, 41, 59, 0.6);
     backdrop-filter: blur(20px);
     border: 2px solid transparent;
     border-radius: 16px;
@@ -360,7 +362,7 @@ h2 {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .card::before {
@@ -380,7 +382,7 @@ h2 {
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
 }
 
 .card h3 {
@@ -438,7 +440,7 @@ h2 {
     padding: 8px 14px;
     border-radius: 20px;
     border: 1px solid var(--primary);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+    background: rgba(59, 130, 246, 0.15);
     color: var(--primary);
     font-weight: 600;
     transition: all 0.3s ease;
@@ -448,6 +450,7 @@ h2 {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     transform: scale(1.05);
+    border-color: var(--secondary);
 }
 
 /* =====================
@@ -455,7 +458,7 @@ h2 {
 ===================== */
 
 section {
-    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.3);
 }
 
 section:last-child {
@@ -483,8 +486,8 @@ footer {
     text-align: center;
     padding: 60px 20px;
     color: var(--text-secondary);
-    border-top: 1px solid rgba(37, 99, 235, 0.1);
-    background: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(51, 65, 85, 0.3);
+    background: rgba(15, 23, 42, 0.5);
     backdrop-filter: blur(20px);
     font-weight: 500;
 }
@@ -495,10 +498,10 @@ footer {
 
 @keyframes glow {
     0%, 100% {
-        box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
     }
     50% {
-        box-shadow: 0 0 40px rgba(37, 99, 235, 0.5);
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
     }
 }
 
